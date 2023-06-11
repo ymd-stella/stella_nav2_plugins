@@ -1,0 +1,7 @@
+<class_libraries>
+    <library path="stella_wait_for_button_behavior">
+        <class name="stella/WaitForButton" type="stella::WaitForButton" base_class_type="nav2_core::Behavior">
+            <description></description>
+        </class>
+    </library>
+</class_libraries>

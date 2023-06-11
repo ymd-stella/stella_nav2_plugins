@@ -11,7 +11,9 @@ find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
+find_package(stella REQUIRED)
 find_package(nav2_common REQUIRED)
+find_package(nav2_core REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(nav2_util REQUIRED)
 find_package(tf2_ros REQUIRED)
@@ -28,7 +30,9 @@ set(dependencies
   nav_msgs
   std_msgs
   std_srvs
+  stella
   nav2_common
+  nav2_core
   nav2_msgs
   nav2_util
   tf2_ros
@@ -44,14 +48,29 @@ add_library(stella_nav2_remove_passed_goals_action_bt_node SHARED plugins/action
 ament_target_dependencies(stella_nav2_remove_passed_goals_action_bt_node ${dependencies})
 target_compile_definitions(stella_nav2_remove_passed_goals_action_bt_node PRIVATE BT_PLUGIN_EXPORT)
 
+add_library(stella_wait_for_button_behavior SHARED
+  plugins/wait_for_button.cpp
+)
+ament_target_dependencies(stella_wait_for_button_behavior
+  ${dependencies}
+)
+
+pluginlib_export_plugin_description_file(nav2_core behavior_plugin.xml)
+
 install(DIRECTORY include/
   DESTINATION include/
 )
 
-install(TARGETS stella_nav2_remove_passed_goals_action_bt_node
+install(TARGETS
+  stella_nav2_remove_passed_goals_action_bt_node
+  stella_wait_for_button_behavior
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
+)
+
+install(FILES behavior_plugin.xml
+  DESTINATION share/${PROJECT_NAME}
 )
 
 ament_export_include_directories(
@@ -60,6 +79,7 @@ ament_export_include_directories(
 
 ament_export_libraries(
   stella_nav2_remove_passed_goals_action_bt_node
+  stella_wait_for_button_behavior
 )
 
 ament_export_dependencies(${dependencies})

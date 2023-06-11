@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
     <name>stella_nav2_plugins</name>
-    <version>0.0.0</version>
+    <version>1.0.0</version>
     <description>TODO</description>
     <maintainer email="world.applepie@gmail.com">ymd-stella</maintainer>
-    <license>TODO</license>
+    <license>Apache-2.0</license>
 
     <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -18,7 +18,9 @@
     <depend>sensor_msgs</depend>
     <depend>std_msgs</depend>
     <depend>std_srvs</depend>
+    <depend>stella</depend>
     <depend>nav2_common</depend>
+    <depend>nav2_core</depend>
     <depend>nav2_msgs</depend>
     <depend>nav2_util</depend>
     <depend>tf2</depend>
@@ -28,5 +30,6 @@
 
     <export>
         <build_type>ament_cmake</build_type>
+        <nav2_core plugin="${prefix}/behavior_plugin.xml" />
     </export>
 </package>
