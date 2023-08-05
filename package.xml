@@ -18,7 +18,7 @@
     <depend>sensor_msgs</depend>
     <depend>std_msgs</depend>
     <depend>std_srvs</depend>
-    <depend>stella</depend>
+    <depend>stella_interfaces</depend>
     <depend>nav2_common</depend>
     <depend>nav2_core</depend>
     <depend>nav2_msgs</depend>

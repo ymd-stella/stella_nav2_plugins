@@ -6,10 +6,10 @@
 
 #include "nav2_behaviors/timed_behavior.hpp"
 #include "sensor_msgs/msg/joy.hpp"
-#include "stella/action/wait_for_button.hpp"
+#include "stella_interfaces/action/wait_for_button.hpp"
 
 namespace stella {
-using WaitForButtonAction = stella::action::WaitForButton;
+using WaitForButtonAction = stella_interfaces::action::WaitForButton;
 
 class WaitForButton
     : public nav2_behaviors::TimedBehavior<WaitForButtonAction> {
