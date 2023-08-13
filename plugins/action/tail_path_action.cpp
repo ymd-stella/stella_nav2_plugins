@@ -23,6 +23,7 @@ inline BT::NodeStatus TailPath::tick() {
   }
 
   nav_msgs::msg::Path output_path;
+  output_path.header = input_path.header;
   geometry_msgs::msg::PoseStamped pose = input_path.poses.back();
   double integrated_distance = 0.0;
   while (integrated_distance < distance_) {
