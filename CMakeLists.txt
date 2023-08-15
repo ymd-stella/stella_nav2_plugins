@@ -56,6 +56,10 @@ add_library(stella_nav2_publish_path_action_bt_node SHARED plugins/action/publis
 ament_target_dependencies(stella_nav2_publish_path_action_bt_node ${dependencies})
 target_compile_definitions(stella_nav2_publish_path_action_bt_node PRIVATE BT_PLUGIN_EXPORT)
 
+add_library(stella_nav2_add_two_float_action_bt_node SHARED plugins/action/add_two_float_action.cpp)
+ament_target_dependencies(stella_nav2_add_two_float_action_bt_node ${dependencies})
+target_compile_definitions(stella_nav2_add_two_float_action_bt_node PRIVATE BT_PLUGIN_EXPORT)
+
 add_library(stella_wait_for_button_behavior SHARED
   plugins/wait_for_button.cpp
 )
@@ -73,6 +77,7 @@ install(TARGETS
   stella_nav2_tail_path_action_bt_node
   stella_nav2_publish_string_action_bt_node
   stella_nav2_publish_path_action_bt_node
+  stella_nav2_add_two_float_action_bt_node
   stella_wait_for_button_behavior
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -91,6 +96,7 @@ ament_export_libraries(
   stella_nav2_tail_path_action_bt_node
   stella_nav2_publish_string_action_bt_node
   stella_nav2_publish_path_action_bt_node
+  stella_nav2_add_two_float_action_bt_node
   stella_wait_for_button_behavior
 )
 
