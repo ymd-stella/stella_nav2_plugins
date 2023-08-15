@@ -35,6 +35,7 @@ inline BT::NodeStatus TailPath::tick() {
     integrated_distance = nav2_util::geometry_utils::euclidean_distance(
         input_path.poses.back(), pose);
   }
+  std::reverse(output_path.poses.begin(), output_path.poses.end());
   setOutput("output_path", output_path);
   return BT::NodeStatus::SUCCESS;
 }
