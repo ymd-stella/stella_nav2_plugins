@@ -4,4 +4,9 @@
             <description></description>
         </class>
     </library>
+    <library path="stella_goal_checker">
+        <class type="stella::GoalChecker" base_class_type="nav2_core::GoalChecker">
+            <description></description>
+        </class>
+    </library>
 </class_libraries>

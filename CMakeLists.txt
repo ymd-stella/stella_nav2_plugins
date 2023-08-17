@@ -67,7 +67,14 @@ ament_target_dependencies(stella_wait_for_button_behavior
   ${dependencies}
 )
 
-pluginlib_export_plugin_description_file(nav2_core behavior_plugin.xml)
+add_library(stella_goal_checker SHARED
+  plugins/goal_checker.cpp
+)
+ament_target_dependencies(stella_goal_checker
+  ${dependencies}
+)
+
+pluginlib_export_plugin_description_file(nav2_core plugins.xml)
 
 install(DIRECTORY include/
   DESTINATION include/
@@ -79,12 +86,13 @@ install(TARGETS
   stella_nav2_publish_path_action_bt_node
   stella_nav2_add_two_float_action_bt_node
   stella_wait_for_button_behavior
+  stella_goal_checker
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
-install(FILES behavior_plugin.xml
+install(FILES plugins.xml
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -98,6 +106,7 @@ ament_export_libraries(
   stella_nav2_publish_path_action_bt_node
   stella_nav2_add_two_float_action_bt_node
   stella_wait_for_button_behavior
+  stella_goal_checker
 )
 
 ament_export_dependencies(${dependencies})
