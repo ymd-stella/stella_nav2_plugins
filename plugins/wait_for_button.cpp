@@ -1,7 +1,7 @@
 #include <chrono>
 #include <memory>
 
-#include "wait_for_button.hpp"
+#include "stella_nav2_plugins/plugins/wait_for_button.hpp"
 
 namespace stella {
 
