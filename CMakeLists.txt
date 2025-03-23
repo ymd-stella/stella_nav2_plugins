@@ -12,6 +12,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(stella_interfaces REQUIRED)
+find_package(nav2_behaviors REQUIRED)
 find_package(nav2_common REQUIRED)
 find_package(nav2_core REQUIRED)
 find_package(nav2_msgs REQUIRED)
@@ -31,6 +32,7 @@ set(dependencies
   std_msgs
   std_srvs
   stella_interfaces
+  nav2_behaviors
   nav2_common
   nav2_core
   nav2_msgs
